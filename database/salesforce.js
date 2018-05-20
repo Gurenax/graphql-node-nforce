@@ -2,11 +2,21 @@ const nforce = require('nforce')
 
 module.exports = org => {
   return {
-    async query(queryString) {
-      const response = await query(org, queryString, null)
+    async getAccounts() {
+      const response = await query(org, `
+        select Id, Name, SLA__c from Account
+      `, null)
+      return mapRecordsToFields(response)
+    },
+
+    async getAccountById(id) {
+      const response = await query(org, `
+        select Id, Name, SLA__c from Account WHERE Id = '${id}'
+      `, null)
       return mapRecordsToFields(response)
     }
   }
+
 }
 
 // TODO: Put these functions in a util class
