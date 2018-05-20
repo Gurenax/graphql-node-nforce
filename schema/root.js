@@ -2,6 +2,7 @@ const {
   GraphQLSchema,
   GraphQLObjectType,
   GraphQLString,
+  GraphQLID,
   GraphQLNonNull,
   GraphQLList
 } = require('graphql')
@@ -15,17 +16,16 @@ const RootQueryType = new GraphQLObjectType({
       accounts: {
         type: new GraphQLList( AccountType ),
         resolve: (obj, args, { salesforce }) => {
-          return salesforce.query(`select Id, Name, SLA__c from Account LIMIT 5`)
-          // return 'Hello World!'
-          // return salesforce.getAllAccounts()
-          // return await salesforce.getAllAccounts()
-          // return [
-          //   {
-          //     id: '1',
-          //     name: 'hello',
-          //     sla__c: 'test'
-          //   }
-          // ]
+          return salesforce.getAccounts()
+        }
+      },
+      accountsById: {
+        type: new GraphQLList( AccountType ),
+        args: {
+          id: { type: new GraphQLNonNull(GraphQLID) }
+        },
+        resolve: (obj, args, { salesforce }) => {
+          return salesforce.getAccountById(args.id) 
         }
       }
     }
