@@ -7,12 +7,14 @@
   "dependencies": {
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
-    "graphql": "^0.13.2"
+    "graphql": "^0.13.2",
+    "nforce": "^1.10.0"
   },
   "scripts": {
     "dev": "nodemon server.js"
   },
   "devDependencies": {
+    "dotenv": "^5.0.1",
     "nodemon": "^1.17.4"
   }
 }
