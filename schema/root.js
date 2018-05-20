@@ -15,7 +15,7 @@ const RootQueryType = new GraphQLObjectType({
       accounts: {
         type: new GraphQLList( AccountType ),
         resolve: (obj, args, { salesforce }) => {
-          return salesforce.getAllAccounts()
+          return salesforce.query(`select Id, Name, SLA__c from Account LIMIT 5`)
           // return 'Hello World!'
           // return salesforce.getAllAccounts()
           // return await salesforce.getAllAccounts()
