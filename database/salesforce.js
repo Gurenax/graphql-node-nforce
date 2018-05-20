@@ -14,6 +14,11 @@ module.exports = org => {
         select Id, Name, SLA__c from Account WHERE Id = '${id}'
       `, null)
       return mapRecordsToFields(response)
+    },
+
+    async createAccount(record) {
+      const response = await createRecord(org, 'Account', record, null)
+      return response
     }
   }
 
@@ -31,7 +36,7 @@ const mapRecordsToFields = records => (
 
 /**
  * Perform a SOQL Query
- * @param {object} org         - Salesforce org to query
+ * @param {object} org         - Salesforce org
  * @param {string} queryString - SOQL query
  * @param {object} oauth       - OAuth string received from successful authentication
  * @return {Promise}
@@ -53,33 +58,34 @@ const query = (org, queryString, oauth) =>
     )
   })
 
-// /**
-//  * Create a record
-//  * @param {string} sobjectName - Name of the SObject (e.g. Account)
-//  * @param {object} recordData  - Key value pair of Field Names and Field Values
-//  * @param {object} oauth       - OAuth string received from successful authentication
-//  */
-// const createRecord = (sobjectName, recordData, oauth) => {
-//   const sobj = nforce.createSObject(sobjectName)
-//   Object.entries(recordData).map(([key, value]) => {
-//     sobj.set(key, value)
-//   })
-//   return new Promise((resolve, reject) => {
-//     org.insert(
-//       {
-//         sobject: sobj,
-//         oauth: oauth
-//       },
-//       (error, response) => {
-//         if (!error) {
-//           resolve(response)
-//         } else {
-//           reject(error)
-//         }
-//       }
-//     )
-//   })
-// }
+/**
+ * Create a record
+ * @param {object} org         - Salesforce org
+ * @param {string} sobjectName - Name of the SObject (e.g. Account)
+ * @param {object} recordData  - Key value pair of Field Names and Field Values
+ * @param {object} oauth       - OAuth string received from successful authentication
+ */
+const createRecord = (org, sobjectName, recordData, oauth) => {
+  const sobj = nforce.createSObject(sobjectName)
+  Object.entries(recordData).map(([key, value]) => {
+    sobj.set(key, value)
+  })
+  return new Promise((resolve, reject) => {
+    org.insert(
+      {
+        sobject: sobj,
+        oauth: oauth
+      },
+      (error, response) => {
+        if (!error) {
+          resolve(response)
+        } else {
+          reject(error)
+        }
+      }
+    )
+  })
+}
 
 // /**
 //  * Update a record
