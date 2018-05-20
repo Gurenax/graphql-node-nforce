@@ -2,8 +2,8 @@ const nforce = require('nforce')
 
 module.exports = org => {
   return {
-    async getAllAccounts() {
-      const response = await query(org, `select Id, Name, SLA__c from Account LIMIT 2`, null)
+    async query(queryString) {
+      const response = await query(org, queryString, null)
       return mapRecordsToFields(response)
     }
   }
