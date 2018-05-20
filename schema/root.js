@@ -32,9 +32,19 @@ const RootQueryType = new GraphQLObjectType({
   }
 })
 
+const AddAccountMutation = require('./mutations/add-account')
+
+const RootMutationType = new GraphQLObjectType({
+  name: 'RootMutation',
+  description: 'The root mutation type',
+  fields: () => ({
+    AddAccount: AddAccountMutation
+  })
+})
+
 const rootSchema = new GraphQLSchema({
-  query: RootQueryType
-  // mutation: RootMutationType
+  query: RootQueryType,
+  mutation: RootMutationType
 })
 
 module.exports = rootSchema
