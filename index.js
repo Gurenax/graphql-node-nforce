@@ -39,6 +39,7 @@ org.authenticate(
     assert.equal(error, null)
     // GraphQL middleware
     server.use('/graphql', (req, res) => {
+      // TODO: Use facebook dataloader to cache queries
       graphqlHTTP({
         schema: rootSchema,
         graphiql: true,
