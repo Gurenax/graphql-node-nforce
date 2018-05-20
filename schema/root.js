@@ -1,18 +1,32 @@
 const {
   GraphQLSchema,
   GraphQLObjectType,
-  GraphQLString
-  // GraphQLNonNull
+  GraphQLString,
+  GraphQLNonNull,
+  GraphQLList
 } = require('graphql')
 
 const RootQueryType = new GraphQLObjectType({
   name: 'RootQuery',
   description: 'The root query type',
   fields: () => {
+    const AccountType = require('./types/account')
     return {
-      hello: {
-        type: GraphQLString,
-        resolve: () => 'Hello World!'
+      accounts: {
+        type: new GraphQLList( AccountType ),
+        resolve: (obj, args, { salesforce }) => {
+          return salesforce.getAllAccounts()
+          // return 'Hello World!'
+          // return salesforce.getAllAccounts()
+          // return await salesforce.getAllAccounts()
+          // return [
+          //   {
+          //     id: '1',
+          //     name: 'hello',
+          //     sla__c: 'test'
+          //   }
+          // ]
+        }
       }
     }
   }
