@@ -1,24 +1,22 @@
 const nforce = require('nforce')
 
 module.exports = org => {
-  // console.log('org', org)
   return {
     async getAllAccounts() {
       const response = await query(org, `select Id, Name, SLA__c from Account LIMIT 2`, null)
-      const results = mapRecordsToFields(response)
-      
-      return results
+      return mapRecordsToFields(response)
     }
   }
 }
 
+// TODO: Put these functions in a util class
 /**
  * Map salesforce response records to its fields
  * @param {list} records - list of records from salesforce response
  * @return {list} list of records which correspond to their fields
  */
 const mapRecordsToFields = records => (
-  records.reduce((result, record) => [...result, record._fields]), []
+  records.reduce((result, record) => ([...result, record._fields]), [])
 )
 
 /**
