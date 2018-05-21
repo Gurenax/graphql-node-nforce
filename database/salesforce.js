@@ -19,6 +19,11 @@ module.exports = org => {
     async createAccount(record) {
       const response = await createRecord(org, 'Account', record, null)
       return response
+    },
+
+    async updateAccount(record) {
+      const response = await updateRecord(org, 'Account', record, null)
+      return response
     }
   }
 
@@ -78,7 +83,8 @@ const createRecord = (org, sobjectName, recordData, oauth) => {
       },
       (error, response) => {
         if (!error) {
-          resolve(response)
+          recordData.id = response.id
+          resolve(recordData)
         } else {
           reject(error)
         }
@@ -87,30 +93,32 @@ const createRecord = (org, sobjectName, recordData, oauth) => {
   })
 }
 
-// /**
-//  * Update a record
-//  * @param {string} sobjectName - Name of the SObject (e.g. Account)
-//  * @param {object} recordDataWithID  - Key value pair of Field Names and Field Values
-//  * @param {object} oauth       - OAuth string received from successful authentication
-//  */
-// const updateRecord = (sobjectName, recordDataWithID, oauth) => {
-//   const sobj = nforce.createSObject(sobjectName)
-//   Object.entries(recordData).map(([key, value]) => {
-//     sobj.set(key, value)
-//   })
-//   return new Promise((resolve, reject) => {
-//     org.update(
-//       {
-//         sobject: sobj,
-//         oauth: oauth
-//       },
-//       (error, response) => {
-//         if (!error) {
-//           resolve(response)
-//         } else {
-//           reject(error)
-//         }
-//       }
-//     )
-//   })
-// }
+/**
+ * Update a record
+ * @param {object} org         - Salesforce org
+ * @param {string} sobjectName - Name of the SObject (e.g. Account)
+ * @param {object} recordDataWithID  - Key value pair of Field Names and Field Values
+ * @param {object} oauth       - OAuth string received from successful authentication
+ */
+const updateRecord = (org, sobjectName, recordDataWithID, oauth) => {
+  const sobj = nforce.createSObject(sobjectName)
+  Object.entries(recordDataWithID).map(([key, value]) => {
+    sobj.set(key, value)
+  })
+  return new Promise((resolve, reject) => {
+    org.update(
+      {
+        sobject: sobj,
+        oauth: oauth
+      },
+      (error, response) => {
+        if (!error) {
+          // resolve(response)
+          resolve(recordDataWithID)
+        } else {
+          reject(error)
+        }
+      }
+    )
+  })
+}
