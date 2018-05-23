@@ -24,6 +24,11 @@ module.exports = org => {
     async updateAccount(record) {
       const response = await updateRecord(org, 'Account', record, null)
       return response
+    },
+
+    async deleteAccount(record) {
+      const response = await deleteRecord(org, 'Account', record, null)
+      return response
     }
   }
 
@@ -122,3 +127,34 @@ const updateRecord = (org, sobjectName, recordDataWithID, oauth) => {
     )
   })
 }
+
+/**
+ * Delete a record
+ * @param {object} org         - Salesforce org
+ * @param {string} sobjectName - Name of the SObject (e.g. Account)
+ * @param {object} recordDataWithID  - Key value pair of Field Names and Field Values
+ * @param {object} oauth       - OAuth string received from successful authentication
+ */
+const deleteRecord = (org, sobjectName, recordDataWithID, oauth) => {
+  const sobj = nforce.createSObject(sobjectName)
+  Object.entries(recordDataWithID).map(([key, value]) => {
+    sobj.set(key, value)
+  })
+  return new Promise((resolve, reject) => {
+    org.delete(
+      {
+        sobject: sobj,
+        oauth: oauth
+      },
+      (error, response) => {
+        if (!error) {
+          // resolve(response)
+          resolve(recordDataWithID)
+        } else {
+          reject(error)
+        }
+      }
+    )
+  })
+}
+
