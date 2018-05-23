@@ -9,4 +9,6 @@
 
 
 ### Todo:
-- Add mutation to delete account
+- Add mutation to create multiple accounts
+- Add mutation to update multiple accounts
+- Add mutation to delete multiple accounts
