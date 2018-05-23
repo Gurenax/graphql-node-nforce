@@ -34,13 +34,15 @@ const RootQueryType = new GraphQLObjectType({
 
 const AddAccountMutation = require('./mutations/add-account')
 const UpdateAccountMutation = require('./mutations/update-account')
+const DeleteAccountMutation = require('./mutations/delete-account')
 
 const RootMutationType = new GraphQLObjectType({
   name: 'RootMutation',
   description: 'The root mutation type',
   fields: () => ({
     AddAccount: AddAccountMutation,
-    UpdateAcconunt: UpdateAccountMutation
+    UpdateAcconunt: UpdateAccountMutation,
+    DeleteAccount: DeleteAccountMutation
   })
 })
 
