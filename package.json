@@ -11,10 +11,12 @@
     "nforce": "^1.10.0"
   },
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "test": "jshint index.js lib/ schema/"
   },
   "devDependencies": {
     "dotenv": "^5.0.1",
+    "jshint": "^2.9.5",
     "nodemon": "^1.17.4"
   }
 }
