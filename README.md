@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Gurenax/graphql-node-nforce.svg?branch=master)](https://travis-ci.com/Gurenax/graphql-node-nforce/)
+
 # GraphQL Node nForce
 - GraphQL server implementation of nForce
 
