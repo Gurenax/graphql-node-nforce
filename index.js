@@ -1,5 +1,3 @@
-'use strict'
-
 // Express
 const express = require('express')
 const assert = require('assert')
