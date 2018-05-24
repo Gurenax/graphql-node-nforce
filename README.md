@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.com/Gurenax/graphql-node-nforce.svg?branch=master)](https://travis-ci.com/Gurenax/graphql-node-nforce/)
 
-# GraphQL Node nForce
-- GraphQL server implementation of nForce
+
+# GraphQL Node nForce [![Build Status](https://travis-ci.com/Gurenax/graphql-node-nforce.svg?branch=master)](https://travis-ci.com/Gurenax/graphql-node-nforce/)
+GraphQL server implementation of nForce
 
 ## Goals of this project
 - Use nForce to integrate and perform queries with Salesforce
