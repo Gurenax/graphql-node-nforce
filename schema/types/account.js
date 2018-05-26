@@ -12,7 +12,8 @@ module.exports = new GraphQLObjectType({
     return {
       id: { type: GraphQLID },
       name: { type: GraphQLString },
-      sla__c: { type: GraphQLString }
+      sla__c: { type: GraphQLString },
+      description: { type: GraphQLString }
     }
   }
 })
