@@ -9,6 +9,7 @@ module.exports = new GraphQLInputObjectType({
   fields: {
     id: { type: GraphQLID },
     name: { type: GraphQLString },
-    sla__c: { type: GraphQLString }
+    sla__c: { type: GraphQLString },
+    description: { type: GraphQLString },
   }
 })
