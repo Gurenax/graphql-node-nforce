@@ -13,6 +13,12 @@ const RootQueryType = new GraphQLObjectType({
   fields: () => {
     const AccountType = require('./types/account')
     return {
+      hello: {
+        type: GraphQLString,
+        resolve: (obj, args, { salesforce }) => {
+          return "Hello World from Mav3rik!"
+        }
+      },
       accounts: {
         type: new GraphQLList( AccountType ),
         resolve: (obj, args, { salesforce }) => {
