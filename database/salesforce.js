@@ -12,7 +12,7 @@ module.exports = org => {
     async getAccounts() {
       const response = await query(
         org,
-        `select Id, Name, SLA__c from Account`,
+        `select Id, Name, Description, SLA__c from Account`,
         null
       )
       return mapRecordsToFields(response)
@@ -21,7 +21,7 @@ module.exports = org => {
     async getAccountById(id) {
       const response = await query(
         org,
-        `select Id, Name, SLA__c from Account WHERE Id = '${id}'`,
+        `select Id, Name, Description, SLA__c from Account WHERE Id = '${id}'`,
         null
       )
       return mapRecordsToFields(response)
@@ -30,7 +30,7 @@ module.exports = org => {
     async getAccountByName(name) {
       const response = await query(
         org,
-        `select Id, Name, SLA__c from Account WHERE Name = '${name}'`,
+        `select Id, Name, Description, SLA__c from Account WHERE Name = '${name}'`,
         null
       )
       return mapRecordsToFields(response)
