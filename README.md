@@ -8,7 +8,7 @@ GraphQL server implementation of nForce
 - Utilise these patterns as back-end for React and React Native salesforce projects
 
 
-### Todo:
+### Future improvements:
 - Add mutation to create multiple accounts
 - Add mutation to update multiple accounts
 - Add mutation to delete multiple accounts
