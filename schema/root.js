@@ -27,6 +27,15 @@ const RootQueryType = new GraphQLObjectType({
         resolve: (obj, args, { salesforce }) => {
           return salesforce.getAccountById(args.id) 
         }
+      },
+      accountsByName: {
+        type: new GraphQLList( AccountType ),
+        args: {
+          name: { type: new GraphQLNonNull(GraphQLString) }
+        },
+        resolve: (obj, args, { salesforce }) => {
+          return salesforce.getAccountByName(args.name) 
+        }
       }
     }
   }
@@ -35,6 +44,7 @@ const RootQueryType = new GraphQLObjectType({
 const AddAccountMutation = require('./mutations/add-account')
 const UpdateAccountMutation = require('./mutations/update-account')
 const DeleteAccountMutation = require('./mutations/delete-account')
+const UpsertAccountMutation = require('./mutations/upsert-account')
 
 const RootMutationType = new GraphQLObjectType({
   name: 'RootMutation',
@@ -42,7 +52,8 @@ const RootMutationType = new GraphQLObjectType({
   fields: () => ({
     AddAccount: AddAccountMutation,
     UpdateAcconunt: UpdateAccountMutation,
-    DeleteAccount: DeleteAccountMutation
+    DeleteAccount: DeleteAccountMutation,
+    UpsertAccount: UpsertAccountMutation
   })
 })
 
