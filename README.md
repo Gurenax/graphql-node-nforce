@@ -36,7 +36,7 @@ SALESFORCE_SECURITY_TOKEN =
 ```
 
 ### Libraries
-- Run a `yarn install` to install these dependencies:
+- Run `yarn install` to install these dependencies:
   - [nforce](https://github.com/kevinohara80/nforce)
   - [node-nforce](https://github.com/Gurenax/node-nforce)
   - [GraphQl](https://github.com/graphql/graphql-js)
