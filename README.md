@@ -1,8 +1,13 @@
-<center>
-# GraphQL Node nForce
-<br/>[![Build Status](https://travis-ci.com/Gurenax/graphql-node-nforce.svg?branch=master)](https://travis-ci.com/Gurenax/graphql-node-nforce/)
-GraphQL server implementation of nForce
-</center>
+<h1 align="center">
+  GraphQL Node nForce
+</h1>
+
+<p align="center">Building APIs with GraphQL and Salesforce</p>
+<p align="center"><a href="https://travis-ci.com/Gurenax/graphql-node-nforce/"><img src="https://travis-ci.com/Gurenax/graphql-node-nforce.svg?branch=master"/></a>
+</p>
+
+---
+
 ## Blogs
 - [Part 1: Building APIs with GraphQL and Salesforce](https://www.mav3rik.com/blog/salesforce-graphql)
 
