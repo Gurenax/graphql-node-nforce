@@ -23,10 +23,24 @@
 - Mutation to delete multiple accounts
 - Mutation to upsert multiple accounts
 
+
 ## Dependencies
-- [nforce](https://github.com/kevinohara80/nforce)
-- [node-nforce](https://github.com/Gurenax/node-nforce)
-- [GraphQl](https://github.com/graphql/graphql-js)
-- [Express GraphQL](https://github.com/graphql/express-graphql)
-- [dotenv](https://github.com/motdotla/dotenv)
-- [nodemon](https://github.com/remy/nodemon)
+### Environment Variables
+- Use a .env file in your application's directory
+```
+CONSUMER_KEY = 
+CONSUMER_SECRET = 
+SALESFORCE_USERNAME = 
+SALESFORCE_PASSWORD = 
+SALESFORCE_SECURITY_TOKEN = 
+```
+
+### Libraries
+- Run a `yarn install` to install these dependencies:
+  - [nforce](https://github.com/kevinohara80/nforce)
+  - [node-nforce](https://github.com/Gurenax/node-nforce)
+  - [GraphQl](https://github.com/graphql/graphql-js)
+  - [Express GraphQL](https://github.com/graphql/express-graphql)
+  - [dotenv](https://github.com/motdotla/dotenv)
+  - [nodemon](https://github.com/remy/nodemon)
+  - [jshint](https://github.com/jshint/jshint)
