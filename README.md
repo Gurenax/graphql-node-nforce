@@ -2,7 +2,7 @@
   GraphQL Node nForce
 </h1>
 
-<p align="center">Building APIs with GraphQL and Salesforce</p>
+<p align="center">☁︎ Building APIs with GraphQL and Salesforce</p>
 <p align="center"><a href="https://travis-ci.com/Gurenax/graphql-node-nforce/"><img src="https://travis-ci.com/Gurenax/graphql-node-nforce.svg?branch=master"/></a>
 </p>
 
@@ -22,3 +22,11 @@
 - Mutation to update multiple accounts
 - Mutation to delete multiple accounts
 - Mutation to upsert multiple accounts
+
+## Dependencies
+- [nforce](https://github.com/kevinohara80/nforce)
+- [node-nforce](https://github.com/Gurenax/node-nforce)
+- [GraphQl](https://github.com/graphql/graphql-js)
+- [Express GraphQL](https://github.com/graphql/express-graphql)
+- [dotenv](https://github.com/motdotla/dotenv)
+- [nodemon](https://github.com/remy/nodemon)
