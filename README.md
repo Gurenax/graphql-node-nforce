@@ -10,6 +10,7 @@
 
 ## Blogs
 - [Part 1: Building APIs with GraphQL and Salesforce](https://www.mav3rik.com/blog/salesforce-graphql)
+- [Part 2: Building APIs with GraphQL and Salesforce](#)
 
 ## Objectives
 - Use nForce to integrate and perform queries with Salesforce
